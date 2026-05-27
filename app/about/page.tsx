@@ -130,7 +130,7 @@ export default function AboutPage() {
                                 </h5>
 
                                 {/* Description */}
-                                <p className="text-gray-400 leading-relaxed whitespace-pre-line ml-8">
+                                <p className="text-gray-400 leading-relaxed whitespace-pre-line ml-16">
                                     {experience.description}
                                 </p>
 
