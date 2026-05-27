@@ -6,13 +6,12 @@ export default function Hero() {
                     William Schmidt
                 </h1>
 
-                <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
-                    CS @ Notre Dame • AI • Software Engineering
+                <h2 className="text-2xl md:text-3xl text-gray-300 mb-1">
+                    Junior Computer Science Major at Notre Dame | AI Summer Intern at BPN Solutions
                 </h2>
 
                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-                    Building AI systems, Raspberry Pi tools,
-                    CAN bus telemetry software, and automation pipelines.
+                    wschmid3@nd.edu | 317-478-3556 | www.linkedin.com/in/william-schmidt3
                 </p>
 
                 <div className="flex gap-4 justify-center">
@@ -39,7 +38,7 @@ export default function Hero() {
                     </a>
 
                     <a
-                        href="#about"
+                        href="/about"
                         className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
                     >
                         About

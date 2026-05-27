@@ -25,7 +25,7 @@ export default function Navbar() {
                         Resume
                     </Link>
 
-                    <Link href="#about" className="hover:text-white transition">
+                    <Link href="/about" className="hover:text-white transition">
                         About
                     </Link>
 
