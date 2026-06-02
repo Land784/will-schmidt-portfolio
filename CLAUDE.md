@@ -233,6 +233,13 @@ Good:
 
 ---
 
+# Git Commit Rules
+
+* Never include `Co-Authored-By` or any Claude/AI attribution in commit messages.
+* All commits must appear as authored solely by the user.
+
+---
+
 # Default Behavior
 
 Unless instructed otherwise:
