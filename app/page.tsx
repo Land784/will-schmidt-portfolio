@@ -1,10 +1,11 @@
 import Hero from "@/components/ui/hero";
-import Navbar from "@/components/ui/navbar";
+import Projects from "@/components/ui/projects";
 
 export default function Home() {
   return (
       <main>
         <Hero />
+        <Projects />
       </main>
   );
 }

@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="min-h-screen flex items-center justify-center bg-black text-white px-6">
+        <section className="min-h-[85vh] flex items-center justify-center bg-black text-white px-6">
             <div className="max-w-4xl text-center">
                 <h1 className="text-6xl md:text-8xl font-bold mb-4">
                     William Schmidt
@@ -11,35 +11,44 @@ export default function Hero() {
                 </h2>
 
                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-                    wschmid3@nd.edu | 317-478-3556 | www.linkedin.com/in/william-schmidt3
+                    wschmid3@nd.edu |{" "}
+                    <a
+                        href="https://www.linkedin.com/in/william-schmidt3"
+                        target="_blank"
+                        className="hover:text-white transition underline underline-offset-2"
+                    >
+                        LinkedIn
+                    </a>
                 </p>
 
-                <div className="flex gap-4 justify-center">
-                    <a
-                        href="https://github.com/Land784"
-                        target="_blank"
-                        className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
-                    >
-                        GitHub
-                    </a>
-
-                    <a
-                        href="#projects"
-                        className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
-                    >
-                        Projects
-                    </a>
-
+                <div className="flex gap-4 justify-center flex-wrap">
+                    {/* Primary CTAs */}
                     <a
                         href="/resume"
-                        className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
+                        className="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition"
                     >
                         Resume
                     </a>
 
                     <a
+                        href="#projects"
+                        className="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition"
+                    >
+                        Projects
+                    </a>
+
+                    {/* Secondary CTAs */}
+                    <a
+                        href="https://github.com/Land784"
+                        target="_blank"
+                        className="border border-white/40 text-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-white hover:text-white transition"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
                         href="/about"
-                        className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
+                        className="border border-white/40 text-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-white hover:text-white transition"
                     >
                         About
                     </a>

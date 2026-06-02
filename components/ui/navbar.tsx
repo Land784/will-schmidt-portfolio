@@ -17,7 +17,7 @@ export default function Navbar() {
                         GitHub
                     </Link>
 
-                    <Link href="#projects" className="hover:text-white transition">
+                    <Link href="/#projects" className="hover:text-white transition">
                         Projects
                     </Link>
 
