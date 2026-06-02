@@ -1,83 +1,4 @@
-const skills = [
-    "Python", "Java", "C", "C++", "SQL", "JavaFX", "PyTorch", "PANDAS",
-    "OpenCV", "Git", "AWS", "Linux", "Vim", "SolidWorks", "Excel",
-];
-
-const courseworkAndProjects = [
-    {
-        title: "Data Structures",
-        org: "University of Notre Dame",
-        date: "Fall 2025",
-        bullets: [
-            "Implemented core data structures (arrays, linked lists, stacks, queues, trees, graphs) in C and Python; applied searching, sorting, and algorithmic strategies to problem-solving",
-        ],
-    },
-    {
-        title: "Introduction to Embedded Systems",
-        org: "University of Notre Dame",
-        date: "Fall 2025",
-        bullets: [
-            "Designed, programmed, and deployed Arduino-based embedded systems for data collection and system control",
-        ],
-    },
-    {
-        title: "Technical Writing",
-        org: "University of Notre Dame",
-        date: "Spring 2025",
-        bullets: [
-            "Applied structured writing processes, including planning, drafting, revising, and editing to produce professional quality documentation",
-        ],
-    },
-    {
-        title: "OpenCV Picture Based Attendance Project",
-        org: "Park Tudor School, Indianapolis, IN",
-        date: null,
-        bullets: [
-            "Designed and implemented a computer vision tool with OpenCV that automated classroom attendance by identifying student faces, improving efficiency and accuracy",
-        ],
-    },
-    {
-        title: "Graphics Based Blackjack Game in C",
-        org: "University of Notre Dame",
-        date: null,
-        bullets: [
-            "Built a Blackjack game in C using graphics libraries, integrating card rendering, user input, and game state management to demonstrate proficiency in low-level programming and interacting systems",
-        ],
-    },
-    {
-        title: "News Sentiment Stock Price Predictor",
-        org: "University of Notre Dame",
-        date: null,
-        bullets: [
-            "Developed a stock price prediction model using PyTorch, integrating historical stock data from yfinance and news sentiment analysis via NewsAPI",
-            "Applied FinBERT for NLP-based financial sentiment analysis to enhance the predictive model's features",
-            "Processed and cleaned large financial and news related datasets using pandas",
-        ],
-    },
-];
-
-const leadership = [
-    {
-        title: "Notre Dame Engineering Summer Abroad Program",
-        org: "Rome, Italy",
-        role: "Student",
-        date: "July – Aug 2025",
-        bullets: [
-            "Completed coursework in Technical Writing and Ethical and Professional Issues including drafting an app proposal to improve bus arrival time prediction accuracy for the city of Rome",
-            "Adapted to new academic and cultural environments, enhancing global perspective and cross-cultural communication",
-        ],
-    },
-    {
-        title: "Diabetes Youth Foundation of Indiana",
-        org: "Noblesville, Indiana",
-        role: "Junior Counselor Team Leader",
-        date: "Summers 2022–2024",
-        bullets: [
-            "Led a team of six other junior counselors to clean and maintain the camp",
-            "Assisted campers aged 7–15 in understanding, managing, and improving their personal care for their type 1 diabetes",
-        ],
-    },
-];
+import { experience, leadership, skills, courses, projects } from "@/lib/resume-data";
 
 function SectionHeader({ title }: { title: string }) {
     return (
@@ -119,7 +40,7 @@ export default function ResumePage() {
                     </a>
                 </div>
 
-                <div className="space-y-12">
+                <div className="space-y-10">
 
                     {/* Identity */}
                     <div className="text-center">
@@ -156,27 +77,36 @@ export default function ResumePage() {
                                 <p className="font-semibold text-white mt-0.5">GPA: 3.898</p>
                             </div>
                         </div>
+                        <div className="mt-6">
+                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">
+                                Relevant Coursework
+                            </p>
+                            <p className="text-sm text-gray-400">
+                                {courses.join(" · ")}
+                            </p>
+                        </div>
                     </section>
 
                     {/* Experience */}
                     <section>
                         <SectionHeader title="Experience" />
-                        <div className="flex justify-between items-start">
-                            <div>
-                                <p className="font-semibold text-lg">Sonablate Corp.</p>
-                                <p className="text-gray-300 text-sm">Software Engineering Intern</p>
-                            </div>
-                            <div className="text-right text-sm shrink-0 ml-6">
-                                <p className="text-gray-400">Indianapolis, IN</p>
-                                <p className="text-gray-400">May – July 2025</p>
-                            </div>
+                        <div className="space-y-7">
+                            {experience.map((entry, i) => (
+                                <div key={i}>
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <p className="font-semibold text-lg">{entry.company}</p>
+                                            <p className="text-gray-300 text-sm">{entry.title}</p>
+                                        </div>
+                                        <div className="text-right text-sm shrink-0 ml-6">
+                                            <p className="text-gray-400">{entry.location}</p>
+                                            <p className="text-gray-400">{entry.date}</p>
+                                        </div>
+                                    </div>
+                                    <BulletList bullets={entry.bullets} />
+                                </div>
+                            ))}
                         </div>
-                        <BulletList bullets={[
-                            "Migrated the protected health information (PHI) browser user interface from Java Swing to JavaFX, adding features like encryption, anonymization, and USB export of patient records, while aligning the interface with the main application's look and feel",
-                            "Accelerated the adoption of the updated PHI browser from version 6.9 to version 6.8.2",
-                            "Utilized ANT build automation to streamline software compilation, testing, and deployment",
-                            "Collaborated with the head of Information Technology to incorporate PACS (Picture Archiving and Communication System) server functions to the PHI browser's export feature",
-                        ]} />
                     </section>
 
                     {/* Technical Skills */}
@@ -194,22 +124,17 @@ export default function ResumePage() {
                         </div>
                     </section>
 
-                    {/* Coursework & Projects */}
+                    {/* Projects */}
                     <section>
-                        <SectionHeader title="Related Coursework & Projects" />
+                        <SectionHeader title="Projects" />
                         <div className="space-y-7">
-                            {courseworkAndProjects.map((entry, i) => (
+                            {projects.map((entry, i) => (
                                 <div key={i}>
                                     <div className="flex justify-between items-start">
                                         <div>
                                             <p className="font-semibold">{entry.title}</p>
                                             <p className="text-gray-400 text-sm">{entry.org}</p>
                                         </div>
-                                        {entry.date && (
-                                            <span className="text-sm text-gray-500 shrink-0 ml-6">
-                                                {entry.date}
-                                            </span>
-                                        )}
                                     </div>
                                     <BulletList bullets={entry.bullets} />
                                 </div>
@@ -227,7 +152,7 @@ export default function ResumePage() {
                                         <div>
                                             <p className="font-semibold">{entry.title}</p>
                                             <p className="text-gray-300 text-sm">{entry.role}</p>
-                                            <p className="text-gray-400 text-sm">{entry.org}</p>
+                                            <p className="text-gray-400 text-sm">{entry.location}</p>
                                         </div>
                                         <span className="text-sm text-gray-500 shrink-0 ml-6">
                                             {entry.date}

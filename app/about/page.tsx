@@ -1,37 +1,21 @@
 import Image from "next/image";
+import { experience, leadership } from "@/lib/resume-data";
 
-
-const experiences = [
-    {
-        year: "Summer 2026",
-        title: "AI Solutions Engineer Intern",
-        company: "BPN Solutions",
-        description:
-            "• Building custom AI powered internal systems and solutions for multiple small companies",
-    },
-
-    {
-        year: "Summer 2025",
-        title: "Software Engineer Intern",
-        company: "Sonablate Corp",
-        description:
-            "• Migrated the protected health information (PHI) browser user interface from Java Swing to JavaFX, adding features like encryption, " +
-            "anonymization, and USB export of patient records, while aligning the interface with the main application's look and feel\n" +
-            "• Accelerated the adoption of the updated PHI browser from version 6.9 to version 6.8.2\n" +
-            "• Utilized ANT build automation to streamline software compilation, testing, and deployment\n" +
-            "• Collaborated with the head of Information Technology to incorporate picture archiving and communication system (PACS) server functions " +
-            "to the PHI browser's export feature",
-    },
-
-    {
-        year: "Summers 2022-2024",
-        title: "Junior Counselor Team Leader",
-        company: "Diabetes Youth Foundation of Indiana Camp Until a Cure",
-        description:
-            "• Led a team of six other junior counselors to clean and maintain camp facilities\n" +
-            "• Assisted campers aged seven to fifteen in understanding, managing, and improving their personal care and management of their Type 1 " +
-            "Diabetes",
-    },
+const timelineEntries = [
+    ...experience.map(e => ({
+        year: e.year,
+        title: e.title,
+        company: e.company,
+        bullets: e.bullets,
+    })),
+    ...leadership
+        .filter(e => e.company === "Diabetes Youth Foundation of Indiana")
+        .map(e => ({
+            year: e.year,
+            title: e.role,
+            company: e.company,
+            bullets: e.bullets,
+        })),
 ];
 
 export default function AboutPage() {
@@ -95,7 +79,6 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-
                 {/* EXPERIENCE SECTION */}
                 <section className="mt-5">
 
@@ -103,12 +86,12 @@ export default function AboutPage() {
                         Experience
                     </h2>
 
-                    <div className="space-y-12">
+                    <div className="space-y-12 border-l border-white/20">
 
-                        {experiences.map((experience, index) => (
+                        {timelineEntries.map((entry, index) => (
                             <div
                                 key={index}
-                                className="relative border-l border-white/20 pl-6"
+                                className="relative pl-6"
                             >
 
                                 {/* Timeline dot */}
@@ -116,23 +99,25 @@ export default function AboutPage() {
 
                                 {/* Year */}
                                 <p className="text-sm text-gray-500 mb-2">
-                                    {experience.year}
+                                    {entry.year}
                                 </p>
 
                                 {/* Title */}
                                 <h3 className="text-2xl font-semibold mb-0.5">
-                                    {experience.title}
+                                    {entry.title}
                                 </h3>
 
-                                {/*Company Name */}
+                                {/* Company Name */}
                                 <h5 className="ml-8 text-1xl font-semibold mb-0.5">
-                                    {experience.company}
+                                    {entry.company}
                                 </h5>
 
-                                {/* Description */}
-                                <p className="text-gray-400 leading-relaxed whitespace-pre-line ml-16">
-                                    {experience.description}
-                                </p>
+                                {/* Bullets */}
+                                <ul className="text-gray-400 leading-relaxed ml-16 space-y-1 mt-1">
+                                    {entry.bullets.map((bullet, i) => (
+                                        <li key={i}>• {bullet}</li>
+                                    ))}
+                                </ul>
 
                             </div>
                         ))}
