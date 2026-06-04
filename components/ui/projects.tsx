@@ -2,9 +2,9 @@ const featured = {
     name: "AI Fitness Platform",
     hook: "A multi-user platform that unifies Strava and WHOOP data and layers Claude on top for training plans and natural-language coaching.",
     description:
-        "Full-stack application built around an async FastAPI backend that integrates three external APIs — Strava, WHOOP, and Anthropic's Claude — via OAuth and typed HTTP clients. " +
+        "Full-stack application built around an async FastAPI backend that integrates three external APIs (Strava, WHOOP, and Anthropic's Claude) via OAuth and typed HTTP clients. " +
         "Implements JWT authentication with bcrypt-hashed passwords and strict per-user data isolation, with business logic separated into a testable service layer. " +
-        "PostgreSQL schema is version-controlled through Alembic migrations, and the entire stack — Postgres, backend, and Next.js frontend — runs reproducibly via Docker Compose.",
+        "PostgreSQL schema is version-controlled through Alembic migrations, and the entire stack (Postgres, backend, and Next.js frontend) runs reproducibly via Docker Compose.",
     tech: [
         "FastAPI",
         "SQLAlchemy 2.0",
@@ -21,7 +21,7 @@ const featured = {
 const projects = [
     {
         name: "Personal Portfolio Website",
-        hook: "The site you're viewing — a recruiter-optimized portfolio built with modern web technologies.",
+        hook: "The site you're viewing: a recruiter-optimized portfolio built with modern web technologies.",
         description:
             "Designed and built from scratch with a recruiter-first philosophy: strong visual hierarchy, fast load times, and mobile responsiveness. " +
             "Features a hero section, experience timeline, embedded resume viewer, and this projects section. " +
