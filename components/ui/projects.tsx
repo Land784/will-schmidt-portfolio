@@ -1,22 +1,33 @@
 const featured = {
-    name: "Personal Portfolio Website",
-    hook: "The site you're viewing — a recruiter-optimized portfolio built with modern web technologies.",
+    name: "AI Fitness Platform",
+    hook: "A multi-user platform that unifies Strava and WHOOP data and layers Claude on top for training plans and natural-language coaching.",
     description:
-        "Designed and built from scratch with a recruiter-first philosophy: strong visual hierarchy, fast load times, and mobile responsiveness. " +
-        "Features a hero section, experience timeline, embedded resume viewer, and this projects section. " +
-        "Architected with reusable components and strict TypeScript throughout.",
-    tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
-    github: "https://github.com/Land784/will-schmidt-portfolio",
+        "Full-stack application built around an async FastAPI backend that integrates three external APIs — Strava, WHOOP, and Anthropic's Claude — via OAuth and typed HTTP clients. " +
+        "Implements JWT authentication with bcrypt-hashed passwords and strict per-user data isolation, with business logic separated into a testable service layer. " +
+        "PostgreSQL schema is version-controlled through Alembic migrations, and the entire stack — Postgres, backend, and Next.js frontend — runs reproducibly via Docker Compose.",
+    tech: [
+        "FastAPI",
+        "SQLAlchemy 2.0",
+        "PostgreSQL",
+        "Next.js 15",
+        "React 19",
+        "Docker",
+        "Anthropic Claude",
+        "JWT Auth",
+    ],
+    github: "https://github.com/Land784/whoop-strava-fitness-tracker",
 };
 
-const placeholders = [
+const projects = [
     {
-        name: "Project Title",
-        hook: "One-sentence description of what this project does and why it matters.",
+        name: "Personal Portfolio Website",
+        hook: "The site you're viewing — a recruiter-optimized portfolio built with modern web technologies.",
         description:
-            "A short technical summary of how it was built, what problems it solved, and any notable engineering decisions made along the way.",
-        tech: ["Python", "React", "PostgreSQL"],
-        github: "#",
+            "Designed and built from scratch with a recruiter-first philosophy: strong visual hierarchy, fast load times, and mobile responsiveness. " +
+            "Features a hero section, experience timeline, embedded resume viewer, and this projects section. " +
+            "Architected with reusable components and strict TypeScript throughout.",
+        tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
+        github: "https://github.com/Land784/will-schmidt-portfolio",
     },
     {
         name: "Project Title",
@@ -25,6 +36,7 @@ const placeholders = [
             "A short technical summary of how it was built, what problems it solved, and any notable engineering decisions made along the way.",
         tech: ["TypeScript", "Node.js", "Docker"],
         github: "#",
+        comingSoon: true,
     },
 ];
 
@@ -67,41 +79,75 @@ export default function Projects() {
                     </a>
                 </div>
 
-                {/* Placeholder grid */}
+                {/* Secondary project grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {placeholders.map((project, index) => (
-                        <div
-                            key={index}
-                            className="border border-dashed border-white/20 rounded-2xl p-6 flex flex-col"
-                        >
-                            <span className="text-xs font-semibold text-gray-600 uppercase tracking-widest mb-3 block">
-                                Coming Soon
-                            </span>
+                    {projects.map((project, index) =>
+                        project.comingSoon ? (
+                            <div
+                                key={index}
+                                className="border border-dashed border-white/20 rounded-2xl p-6 flex flex-col"
+                            >
+                                <span className="text-xs font-semibold text-gray-600 uppercase tracking-widest mb-3 block">
+                                    Coming Soon
+                                </span>
 
-                            <h3 className="text-xl font-bold mb-1 text-gray-400">{project.name}</h3>
+                                <h3 className="text-xl font-bold mb-1 text-gray-400">{project.name}</h3>
 
-                            <p className="text-gray-500 text-sm mb-3">{project.hook}</p>
+                                <p className="text-gray-500 text-sm mb-3">{project.hook}</p>
 
-                            <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
-                                {project.description}
-                            </p>
+                                <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+                                    {project.description}
+                                </p>
 
-                            <div className="flex flex-wrap gap-2 mb-5">
-                                {project.tech.map((t) => (
-                                    <span
-                                        key={t}
-                                        className="text-xs px-3 py-1 border border-white/10 rounded-full text-gray-600"
-                                    >
-                                        {t}
-                                    </span>
-                                ))}
+                                <div className="flex flex-wrap gap-2 mb-5">
+                                    {project.tech.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="text-xs px-3 py-1 border border-white/10 rounded-full text-gray-600"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 border border-white/10 px-5 py-2.5 rounded-xl w-fit cursor-not-allowed">
+                                    GitHub →
+                                </span>
                             </div>
+                        ) : (
+                            <div
+                                key={index}
+                                className="border border-white/30 rounded-2xl p-6 flex flex-col"
+                            >
+                                <h3 className="text-xl font-bold mb-1">{project.name}</h3>
 
-                            <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 border border-white/10 px-5 py-2.5 rounded-xl w-fit cursor-not-allowed">
-                                GitHub →
-                            </span>
-                        </div>
-                    ))}
+                                <p className="text-gray-300 text-sm mb-3">{project.hook}</p>
+
+                                <p className="text-gray-400 text-sm leading-relaxed mb-5 flex-1">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-5">
+                                    {project.tech.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="text-xs px-3 py-1 border border-white/20 rounded-full text-gray-300"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 px-5 py-2.5 rounded-xl w-fit hover:bg-white hover:text-black transition"
+                                >
+                                    GitHub →
+                                </a>
+                            </div>
+                        )
+                    )}
                 </div>
 
             </div>
