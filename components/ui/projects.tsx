@@ -1,8 +1,8 @@
 const featured = {
     name: "AI Fitness Platform",
-    hook: "A multi-user platform that unifies Strava and WHOOP data and layers Claude on top for training plans and natural-language coaching.",
+    hook: "A multi-user platform that unifies Strava, WHOOP, and Dexcom G7 glucose data and layers Claude on top for training plans and natural-language coaching.",
     description:
-        "Full-stack application built around an async FastAPI backend that integrates three external APIs (Strava, WHOOP, and Anthropic's Claude) via OAuth and typed HTTP clients. " +
+        "Full-stack application built around an async FastAPI backend that integrates four external APIs (Strava, WHOOP, Dexcom, and Anthropic's Claude) via OAuth and typed HTTP clients. " +
         "Implements JWT authentication with bcrypt-hashed passwords and strict per-user data isolation, with business logic separated into a testable service layer. " +
         "PostgreSQL schema is version-controlled through Alembic migrations, and the entire stack (Postgres, backend, and Next.js frontend) runs reproducibly via Docker Compose.",
     tech: [
@@ -12,6 +12,7 @@ const featured = {
         "Next.js 15",
         "React 19",
         "Docker",
+        "Dexcom API",
         "Anthropic Claude",
         "JWT Auth",
     ],

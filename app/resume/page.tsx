@@ -1,4 +1,4 @@
-import { experience, leadership, skills, courses, projects } from "@/lib/resume-data";
+import { experience, leadership, skillGroups, courses, projects } from "@/lib/resume-data";
 
 function SectionHeader({ title }: { title: string }) {
     return (
@@ -52,7 +52,15 @@ export default function ResumePage() {
                                 target="_blank"
                                 className="underline underline-offset-2 hover:text-white transition"
                             >
-                                linkedin.com/in/william-schmidt3
+                                LinkedIn
+                            </a>
+                            {" "}·{" "}
+                            <a
+                                href="https://github.com/Land784"
+                                target="_blank"
+                                className="underline underline-offset-2 hover:text-white transition"
+                            >
+                                GitHub
                             </a>
                         </p>
                         <p className="text-gray-600 text-sm mt-1">
@@ -66,15 +74,15 @@ export default function ResumePage() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="font-semibold text-lg">University of Notre Dame</p>
-                                <p className="text-gray-300 text-sm">Bachelor of Science — College of Engineering</p>
+                                <p className="text-gray-300 text-sm">B.S. in Computer Science, College of Engineering</p>
                                 <p className="text-gray-400 text-sm">
-                                    Major: Computer Science · Minor: Engineering Corporate Practice
+                                    Minor: Engineering Corporate Practice
                                 </p>
                             </div>
                             <div className="text-right text-sm shrink-0 ml-6">
                                 <p className="text-gray-400">Notre Dame, IN</p>
-                                <p className="text-gray-400">Class of 2028</p>
-                                <p className="font-semibold text-white mt-0.5">GPA: 3.898</p>
+                                <p className="text-gray-400">Expected May 2028</p>
+                                <p className="font-semibold text-white mt-0.5">GPA: 3.90 / 4.00</p>
                             </div>
                         </div>
                         <div className="mt-6">
@@ -112,14 +120,23 @@ export default function ResumePage() {
                     {/* Technical Skills */}
                     <section>
                         <SectionHeader title="Technical Skills" />
-                        <div className="flex flex-wrap gap-2">
-                            {skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="text-sm px-3 py-1 border border-white/20 rounded-full text-gray-300"
-                                >
-                                    {skill}
-                                </span>
+                        <div className="space-y-4">
+                            {skillGroups.map((group) => (
+                                <div key={group.label}>
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">
+                                        {group.label}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {group.items.map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="text-sm px-3 py-1 border border-white/20 rounded-full text-gray-300"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     </section>
@@ -133,7 +150,7 @@ export default function ResumePage() {
                                     <div className="flex justify-between items-start">
                                         <div>
                                             <p className="font-semibold">{entry.title}</p>
-                                            <p className="text-gray-400 text-sm">{entry.org}</p>
+                                            <p className="text-gray-400 text-sm">{entry.stack}</p>
                                         </div>
                                     </div>
                                     <BulletList bullets={entry.bullets} />

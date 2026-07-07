@@ -19,47 +19,54 @@ export type LeadershipEntry = {
 
 export type ProjectEntry = {
     title: string
-    org: string
+    stack: string
     bullets: string[]
+}
+
+export type SkillGroup = {
+    label: string
+    items: string[]
 }
 
 export const experience: ExperienceEntry[] = [
     {
-        year: "Summer 2026",
-        title: "AI Solutions Engineer Intern",
+        year: "2025 – Present",
+        title: "Software Engineer",
         company: "BPN Solutions",
         location: "Indianapolis, IN",
-        date: "Summer 2026",
+        date: "2025 – Present",
         bullets: [
-            "Building custom AI powered internal systems and solutions for multiple small companies",
+            "Sole engineer on a full-stack job scheduling and profitability platform (Next.js, TypeScript, Node.js, Supabase) for Roots Ops, a landscaping company, so the owner can quote from actual per-job profit margins instead of intuition",
+            "Built profitability analytics, job scheduling, and automated notifications using cron jobs and Twilio SMS integration, with Supabase handling authentication and the Postgres database",
+            "Owned a separate fixed-price engagement, translating a non-technical client's requirements into a production refrigerant management system for HVAC technicians",
+            "Architected a TypeScript Turborepo monorepo (Fastify REST API, Next.js web app, shared domain package) backed by SQL Server, replacing a paper based workflow with an EPA audit-ready system",
+            "Practiced test-driven development with a 70+ test integration suite against a Dockerized SQL Server; set up CI/CD with GitHub Actions and Vercel with auto-deploy on merge",
         ],
     },
     {
         year: "Summer 2025",
-        title: "Software Engineer Intern",
+        title: "Software Engineering Intern",
         company: "Sonablate Corp.",
         location: "Indianapolis, IN",
         date: "May – July 2025",
         bullets: [
-            "Migrated the protected health information (PHI) browser user interface from Java Swing to JavaFX, adding features like encryption, anonymization, and USB export of patient records, while aligning the interface with the main application's look and feel",
-            "Accelerated the adoption of the updated PHI browser from version 6.9 to version 6.8.2",
-            "Utilized ANT build automation to streamline software compilation, testing, and deployment",
-            "Collaborated with the head of Information Technology to incorporate PACS (Picture Archiving and Communication System) server functions to the PHI browser's export feature",
+            "Re-engineered the protected health information (PHI) browser used to manage patient records, migrating the full UI from Java Swing to JavaFX and aligning it with the main application's design system",
+            "Built encryption, anonymization, and USB-export features for patient records, hardening handling of sensitive medical data to support HIPAA-compliant workflows",
+            "Integrated PACS (Picture Archiving and Communication System) server functions into the browser's export pipeline, partnering with the Head of IT to connect clinical imaging infrastructure",
         ],
     },
 ];
 
 export const leadership: LeadershipEntry[] = [
     {
-        year: "July – Aug 2025",
-        title: "Notre Dame Engineering Summer Abroad Program",
+        year: "Jul – Aug 2025",
+        title: "Notre Dame Engineering Summer Program",
         role: "Student",
-        company: "Notre Dame Engineering Summer Abroad Program",
+        company: "Notre Dame Engineering Summer Program",
         location: "Rome, Italy",
-        date: "July – Aug 2025",
+        date: "Jul – Aug 2025",
         bullets: [
-            "Completed coursework in Technical Writing and Ethical and Professional Issues including drafting an app proposal to improve bus arrival time prediction accuracy for the city of Rome",
-            "Adapted to new academic and cultural environments, enhancing global perspective and cross-cultural communication",
+            "Completed coursework in Technical Writing and Professional Ethics; drafted a software proposal to improve bus-arrival-time prediction accuracy for the city of Rome",
         ],
     },
     {
@@ -67,51 +74,52 @@ export const leadership: LeadershipEntry[] = [
         title: "Junior Counselor Team Leader",
         role: "Junior Counselor Team Leader",
         company: "Diabetes Youth Foundation of Indiana",
-        location: "Noblesville, Indiana",
+        location: "Noblesville, IN",
         date: "Summers 2022–2024",
         bullets: [
-            "Led a team of six other junior counselors to clean and maintain camp facilities",
-            "Assisted campers aged seven to fifteen in understanding, managing, and improving their personal care and management of their Type 1 Diabetes",
+            "Led a team of six junior counselors and supported campers aged 7–15 in managing type 1 diabetes",
         ],
     },
 ];
 
-export const skills: string[] = [
-    "Python", "Java", "C", "C++", "SQL", "JavaFX", "PyTorch", "PANDAS",
-    "OpenCV", "Git", "AWS", "Linux", "Vim", "SolidWorks", "Excel",
+export const skillGroups: SkillGroup[] = [
+    {
+        label: "Languages",
+        items: ["Python", "Java", "C", "C++", "SQL", "TypeScript", "JavaScript", "Bash"],
+    },
+    {
+        label: "Frameworks & Libraries",
+        items: ["Node.js", "Next.js", "React", "Fastify", "FastAPI", "PyTorch", "OpenCV", "pandas", "SQLAlchemy", "Tailwind CSS", "REST APIs"],
+    },
+    {
+        label: "Tools & Platforms",
+        items: ["Git", "Docker", "AWS", "PostgreSQL", "Supabase", "SQL Server", "Twilio", "Turborepo", "GitHub Actions", "Vercel", "Linux", "Vim"],
+    },
 ];
 
 export const courses: string[] = [
-    "Data Structures",
-    "Introduction to Embedded Systems",
-    "Technical Writing",
+    "Data Structures and Algorithms",
     "Systems Programming",
-    "Discrete Math",
-    
+    "Embedded Systems",
+    "Discrete Mathematics",
+    "Computer Architecture",
+    "Technical Writing",
 ];
 
 export const projects: ProjectEntry[] = [
     {
-        title: "OpenCV Picture Based Attendance Project",
-        org: "Park Tudor School, Indianapolis, IN",
+        title: "AI Fitness Platform",
+        stack: "FastAPI, PostgreSQL, Next.js, Docker, Dexcom API, Anthropic Claude",
         bullets: [
-            "Designed and implemented a computer vision tool with OpenCV that automated classroom attendance by identifying student faces, improving efficiency and accuracy",
-        ],
-    },
-    {
-        title: "Graphics Based Blackjack Game in C",
-        org: "University of Notre Dame",
-        bullets: [
-            "Built a Blackjack game in C using graphics libraries, integrating card rendering, user input, and game state management to demonstrate proficiency in low-level programming and interacting systems",
+            "Built a full-stack platform (FastAPI, PostgreSQL, Next.js) that combines Strava, WHOOP, and Dexcom G7 glucose data and uses the Anthropic API to generate personalized training plans and coaching",
+            "Engineered an async FastAPI backend integrating four external REST APIs via OAuth 2.0; implemented JWT authentication with bcrypt-hashed passwords and per-user data isolation",
         ],
     },
     {
         title: "News Sentiment Stock Price Predictor",
-        org: "University of Notre Dame",
+        stack: "PyTorch, FinBERT, pandas, NewsAPI",
         bullets: [
-            "Developed a stock price prediction model using PyTorch, integrating historical stock data from yfinance and news sentiment analysis via NewsAPI",
-            "Applied FinBERT for NLP-based financial sentiment analysis to enhance the predictive model's features",
-            "Processed and cleaned large financial and news related datasets using pandas",
+            "Developed a stock price prediction model in PyTorch combining historical market data (yfinance) with FinBERT news sentiment features engineered in pandas",
         ],
     },
 ];
