@@ -31,6 +31,16 @@ const projects = [
         github: "https://github.com/git-cola/git-cola/pull/1621",
     },
     {
+        name: "News Sentiment Stock Price Predictor",
+        hook: "A PyTorch model that predicts next-day stock price movement by combining historical market data with FinBERT news-sentiment features.",
+        description:
+            "An end-to-end data-to-inference pipeline: pulls headlines from NewsAPI, filters them for relevance, scores each with FinBERT, " +
+            "and merges daily sentiment with two years of yfinance price data engineered in pandas. " +
+            "A feedforward network trains on the result with checkpointing on validation loss, alongside a test suite and an interactive inference CLI.",
+        tech: ["PyTorch", "FinBERT", "pandas", "NewsAPI", "yfinance"],
+        github: "https://github.com/Land784/news-sentiment-stock-predictor",
+    },
+    {
         name: "Personal Portfolio Website",
         hook: "The site you're viewing: a recruiter-optimized portfolio built with modern web technologies.",
         description:
