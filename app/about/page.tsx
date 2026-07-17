@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { experience, leadership } from "@/lib/resume-data";
+
+export const metadata: Metadata = {
+    title: "About — William Schmidt",
+};
 
 const timelineEntries = [
     ...experience.map(e => ({

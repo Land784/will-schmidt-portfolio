@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://willschmidt.dev"),
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body>
       <Navbar />
       {children}
+      <Footer />
       <Analytics />
       </body>
       </html>

@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { experience, leadership, skillGroups, courses, projects } from "@/lib/resume-data";
+
+export const metadata: Metadata = {
+    title: "Resume — William Schmidt",
+};
 
 function SectionHeader({ title }: { title: string }) {
     return (

@@ -6,9 +6,13 @@ export default function Hero() {
                     William Schmidt
                 </h1>
 
-                <h2 className="text-2xl md:text-3xl text-gray-300 mb-1">
+                <h2 className="text-2xl md:text-3xl text-gray-300 mb-3">
                     Junior Computer Science Major at Notre Dame | Software Engineering Intern at BPN Solutions
                 </h2>
+
+                <p className="text-base md:text-lg text-gray-400 mb-1">
+                    3.90 GPA · Two SWE internships · Open-source contributor (git-cola)
+                </p>
 
                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
                     wschmid3@nd.edu |{" "}
