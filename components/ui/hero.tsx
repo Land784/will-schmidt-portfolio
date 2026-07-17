@@ -7,7 +7,7 @@ export default function Hero() {
                 </h1>
 
                 <h2 className="text-2xl md:text-3xl text-gray-300 mb-1">
-                    Junior Computer Science Major at Notre Dame | AI Summer Intern at BPN Solutions
+                    Junior Computer Science Major at Notre Dame | Software Engineering Intern at BPN Solutions
                 </h2>
 
                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
