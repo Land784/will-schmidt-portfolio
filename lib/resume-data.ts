@@ -46,10 +46,10 @@ export const experience: ExperienceEntry[] = [
         location: "Indianapolis, IN",
         date: "May 2026 – Present",
         bullets: [
-            "Architected and delivered a full-stack job scheduling and profitability platform (Next.js, TypeScript, Node.js, Supabase) as sole engineer, scoping requirements directly with the owner of Roots Ops Landscaping",
-            "Built per-job profitability analytics that improved quoting margins by 20%, and automated job scheduling and crew notifications using cron jobs and Twilio SMS",
-            "Delivered a production refrigerant management system for DEEM, translating client requirements into an EPA audit-ready platform optimized for technician use on mobile",
-            "Wrote a 200+ test integration suite against a Dockerized SQL Server using test-driven development; set up CI/CD with GitHub Actions and Vercel to auto-deploy on merge",
+            "Owned two client products end to end as sole engineer, from scoping in weekly client calls through architecture and deployment",
+            "Built and shipped DEEM's EPA-compliance refrigerant-management web app in Next.js and Fastify over SQL Server, delivering a certification-gated purchase-order system with automated inventory drawdown and reconciliation plus mobile barcode scanning, tracking 40,000+ lbs of refrigerant a year against $59K-per-day EPA penalties",
+            "Drove test-driven development with a 200+ test integration suite on a Dockerized SQL Server, and built GitHub Actions and Vercel CI/CD to auto-deploy on merge",
+            "Engineered a full-stack job-scheduling and profitability platform in Next.js, TypeScript, and Supabase for a landscaping business launching August 2026, replacing quote-by-feel estimating with per-job margin analytics aimed at lifting the owners' margins from 15-20% toward their 40% goal, and automating crew scheduling and SMS alerts via cron and Twilio",
         ],
     },
     {
