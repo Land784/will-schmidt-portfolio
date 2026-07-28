@@ -31,6 +31,17 @@ const projects = [
         github: "https://github.com/git-cola/git-cola/pull/1621",
     },
     {
+        name: "GameDeck",
+        hook:
+            "A Windows system-tray app that lets gamers control music and skip YouTube ads via global hotkeys and an in-game overlay — without alt-tabbing out of a fullscreen game.",
+        description:
+            "Built on .NET 8 and WPF, it uses Windows SMTC for universal media-app control and Win32 RegisterHotKey with a low-level keyboard-hook fallback for raw-input games. " +
+            "A translucent, click-through WPF overlay renders track info atop DXGI flip-model fullscreen, and a companion Chrome extension handles YouTube ad-skipping over a token-authenticated local WebSocket. " +
+            "Deliberately avoids DLL injection and DirectX hooking to stay anti-cheat safe.",
+        tech: ["C# / .NET 8", "WPF", "Win32 API", "Windows SMTC", "WebSocket", "Chrome Extension"],
+        github: "https://github.com/Land784/GameDeck",
+    },
+    {
         name: "News Sentiment Stock Price Predictor",
         hook: "A PyTorch model that predicts next-day stock price movement by combining historical market data with FinBERT news-sentiment features.",
         description:
