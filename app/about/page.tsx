@@ -60,14 +60,18 @@ export default function AboutPage() {
                                 <span className="font-bold">Major:</span> Computer Science |  <span className={"font-bold"}>  Minor: </span>
                                 Engineering Corporate Practice
                             </p>
+                            <p className="ml-8">
+                                <span className="font-bold">GPA:</span> 3.88 / 4.00
+                            </p>
                         </div>
 
                         {/* Blurb */}
                         <p className="text-gray-400 leading-relaxed">
-                            Hello! My name is William Schmidt, I am originally from Indianapolis, Indiana, and am a Computer Science major at
-                            the University of Notre Dame with a minor in Engineering Corporate Practice. I have been interested in computers
-                            my entire life, and love to build projects that are useful to me using my knowledge! I am extremely interested in AI
-                            and its applications, machine learning, computer networks, as well as developing and working on new projects.
+                            I&apos;m a Computer Science student at Notre Dame from Indianapolis, with two software engineering internships
+                            behind me: shipping full-stack products as the sole engineer at BPN Solutions, and hardening HIPAA-regulated
+                            patient-record software at Sonablate. I&apos;m drawn to work where AI and machine learning meet real systems, which
+                            is why I now do medical image analysis research and built a training platform around my own glucose and fitness
+                            data. Outside of code I DJ campus gigs on speakers I built from scratch.
                         </p>
 
                     </div>

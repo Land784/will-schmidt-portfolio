@@ -30,13 +30,14 @@ export type SkillGroup = {
 
 export const experience: ExperienceEntry[] = [
     {
-        year: "Starting Aug 2026",
-        title: "Incoming Undergraduate Research Assistant",
+        year: "Aug 2026 – Present",
+        title: "Undergraduate Research Assistant",
         company: "AI-Based Medical Image Analysis Lab, CSE Department",
         location: "University of Notre Dame",
-        date: "Starting Aug 2026",
+        date: "Aug 2026 – Present",
         bullets: [
             "AI-based medical image analysis under Prof. Danny Chen",
+            "Performed research tasks on real-time surgical segmentation models",
         ],
     },
     {
@@ -49,7 +50,7 @@ export const experience: ExperienceEntry[] = [
             "Owned two client products end to end as sole engineer, from scoping in weekly client calls through architecture and deployment",
             "Built and shipped DEEM's EPA-compliance refrigerant-management web app in Next.js and Fastify over SQL Server, delivering a certification-gated purchase-order system with automated inventory drawdown and reconciliation plus mobile barcode scanning, tracking 40,000+ lbs of refrigerant a year against $59K-per-day EPA penalties",
             "Drove test-driven development with a 200+ test integration suite on a Dockerized SQL Server, and built GitHub Actions and Vercel CI/CD to auto-deploy on merge",
-            "Engineered a full-stack job-scheduling and profitability platform in Next.js, TypeScript, and Supabase for a landscaping business launching August 2026, replacing quote-by-feel estimating with per-job margin analytics aimed at lifting the owners' margins from 15-20% toward their 40% goal, and automating crew scheduling and SMS alerts via cron and Twilio",
+            "Engineered a full-stack job-scheduling and profitability platform in Next.js, TypeScript, and Supabase for a landscaping business launching August 2026, replacing quote-by-feel estimating with per-job margin analytics aimed at lifting the owners' margins from 15-20% toward their 40% goal, and automating crew scheduling and SMS alerts",
         ],
     },
     {

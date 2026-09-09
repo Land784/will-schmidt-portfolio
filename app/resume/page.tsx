@@ -87,7 +87,7 @@ export default function ResumePage() {
                             <div className="text-right text-sm shrink-0 ml-6">
                                 <p className="text-gray-400">Notre Dame, IN</p>
                                 <p className="text-gray-400">Expected May 2028</p>
-                                <p className="font-semibold text-white mt-0.5">GPA: 3.90 / 4.00</p>
+                                <p className="font-semibold text-white mt-0.5">GPA: 3.88 / 4.00</p>
                             </div>
                         </div>
                         <div className="mt-6">
