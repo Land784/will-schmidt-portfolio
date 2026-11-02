@@ -127,3 +127,19 @@
     @apply font-sans;
   }
 }
+/* Project cards tilt back as they scroll in, sit flat mid-screen, and tilt forward on the way out.
+   Browsers without scroll-driven animations, and reduced-motion users, just see flat cards. */
+@keyframes scroll-tilt {
+  from { transform: perspective(1200px) rotateX(10deg) scale(0.97); }
+  50% { transform: none; }
+  to { transform: perspective(1200px) rotateX(-10deg) scale(0.97); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .scroll-tilt {
+      animation: scroll-tilt linear both;
+      animation-timeline: view();
+    }
+  }
+}

@@ -122,7 +122,7 @@ export default function Projects() {
                 <h2 className="text-5xl font-bold mb-12">Projects</h2>
 
                 {/* Featured card */}
-                <div className="border border-white/30 rounded-2xl p-8 mb-8">
+                <div className="scroll-tilt border border-white/30 rounded-2xl p-8 mb-8">
                     <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4 block">
                         Featured
                     </span>
@@ -158,7 +158,7 @@ export default function Projects() {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="relative border border-white/30 rounded-2xl p-6 flex flex-col"
+                            className="scroll-tilt relative border border-white/30 rounded-2xl p-6 flex flex-col"
                         >
                             {project.underConstruction && (
                                 // caution-tape stripes framing a yellow label
