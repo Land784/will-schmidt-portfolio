@@ -1,4 +1,5 @@
 import StatusBadge from "@/components/ui/status-badge";
+import TiltCard from "@/components/ui/tilt-card";
 import { cn } from "@/lib/utils";
 
 type Project = {
@@ -122,7 +123,7 @@ export default function Projects() {
                 <h2 className="text-5xl font-bold mb-12">Projects</h2>
 
                 {/* Featured card */}
-                <div className="scroll-tilt border border-white/30 rounded-2xl p-8 mb-8">
+                <TiltCard className="border border-white/30 rounded-2xl p-8 mb-8">
                     <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4 block">
                         Featured
                     </span>
@@ -151,14 +152,14 @@ export default function Projects() {
                     >
                         GitHub →
                     </a>
-                </div>
+                </TiltCard>
 
                 {/* Secondary project grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {projects.map((project, index) => (
-                        <div
+                        <TiltCard
                             key={index}
-                            className="scroll-tilt relative border border-white/30 rounded-2xl p-6 flex flex-col"
+                            className="relative border border-white/30 rounded-2xl p-6 flex flex-col"
                         >
                             {project.underConstruction && (
                                 // caution-tape stripes framing a yellow label
@@ -203,7 +204,7 @@ export default function Projects() {
                                     GitHub →
                                 </a>
                             )}
-                        </div>
+                        </TiltCard>
                     ))}
                 </div>
 
