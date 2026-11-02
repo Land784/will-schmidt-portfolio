@@ -7,6 +7,7 @@ type Project = {
     tech: string[];
     github?: string;
     status?: string;
+    underConstruction?: boolean;
 };
 
 const featured = {
@@ -78,6 +79,7 @@ const projects: Project[] = [
         description: "",
         tech: [],
         github: "https://github.com/Land784/Plated",
+        underConstruction: true,
     },
     {
         name: "Trek: Road Trip Generator",
@@ -139,8 +141,17 @@ export default function Projects() {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="border border-white/30 rounded-2xl p-6 flex flex-col"
+                            className="relative border border-white/30 rounded-2xl p-6 flex flex-col"
                         >
+                            {project.underConstruction && (
+                                // caution-tape stripes framing a yellow label
+                                <span className="absolute top-3 right-3 rounded p-[3px] bg-[repeating-linear-gradient(-45deg,#facc15_0_6px,#000_6px_12px)]">
+                                    <span className="block rounded-sm bg-yellow-400 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black">
+                                        Under construction
+                                    </span>
+                                </span>
+                            )}
+
                             <h3 className="text-xl font-bold mb-1">
                                 {project.name}
                                 {project.status && <StatusBadge label={project.status} />}

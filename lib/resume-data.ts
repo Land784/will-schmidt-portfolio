@@ -162,7 +162,7 @@ export const projects: ProjectEntry[] = [
     },
     {
         title: "Plated",
-        stack: "",
+        stack: "Under construction",
         bullets: [
             "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users",
         ],
