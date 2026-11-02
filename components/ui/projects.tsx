@@ -77,7 +77,7 @@ const projects: Project[] = [
         name: "Plated",
         hook: "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users.",
         description: "",
-        tech: [],
+        tech: ["Python", "httpx", "Pydantic", "Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS v4", "ntfy"],
         github: "https://github.com/Land784/Plated",
         underConstruction: true,
     },
@@ -85,7 +85,7 @@ const projects: Project[] = [
         name: "Trek: Road Trip Generator",
         hook: "Building the Flask backend for a road trip generator backed by a relational database (vehicles, rentals, highways, destinations).",
         description: "",
-        tech: ["Flask"],
+        tech: ["Python", "Flask", "MySQL", "Jinja2", "mysqlclient"],
         status: "Team project",
     },
     {
