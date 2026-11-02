@@ -77,7 +77,7 @@ const projects: Project[] = [
         name: "Plated",
         hook: "Pushes Notre Dame dining hall menus to 10+ subscribers' phones at the times they eat, filtered to the stations they visit and led by each hall's highest-protein mains.",
         description:
-            "A cron-scheduled Python job pulls menus from Nutrislice's unofficial JSON API, ranks each station's mains, and sends every subscriber a push over ntfy, trimmed to fit iOS's notification size limit. " +
+            "A Python job on a GitHub Actions cron pulls menus from Nutrislice's unofficial JSON API, ranks each station's mains, and sends every subscriber a push over ntfy, trimmed to fit iOS's notification size limit. " +
             "Subscribers manage their halls, stations, and send times in an invite-only Next.js web app on Supabase, where row-level security and column grants limit each user to their own row. " +
             "A live preview runs the same Python renderer as a Vercel function, so it matches the real push exactly. A macro- and allergen-aware meal planner that searches serving combinations against each user's goals is being rebuilt.",
         tech: ["Python", "httpx", "Pydantic", "Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS v4", "ntfy", "pytest", "Vitest", "GitHub Actions"],
