@@ -93,7 +93,7 @@ const projects: Project[] = [
         hook: "Daily puzzle website: players see a pre-filled tier list and guess what it's ranked by, with hints that get more revealing. Easy, medium and hard puzzles every day, plus build-your-own tier lists.",
         description: "",
         tech: [],
-        status: "Coming soon",
+        underConstruction: true,
     },
 ];
 
