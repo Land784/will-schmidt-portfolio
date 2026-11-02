@@ -73,18 +73,18 @@ const projects: Project[] = [
         github: "https://github.com/Land784/will-schmidt-portfolio",
     },
     {
+        name: "Plated",
+        hook: "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users.",
+        description: "",
+        tech: [],
+        github: "https://github.com/Land784/Plated",
+    },
+    {
         name: "Trek: Road Trip Generator",
         hook: "Building the Flask backend for a road trip generator backed by a relational database (vehicles, rentals, highways, destinations).",
         description: "",
         tech: ["Flask"],
         status: "Team project",
-    },
-    {
-        name: "Plated",
-        hook: "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users.",
-        description: "",
-        tech: [],
-        status: "Coming soon",
     },
     {
         name: "Ranked By",

@@ -174,7 +174,7 @@ export default function ResumePage() {
                                     <div className="flex justify-between items-start">
                                         <div>
                                             <p className="font-semibold">{entry.title}</p>
-                                            <p className="text-gray-400 text-sm">{entry.stack}</p>
+                                            {entry.stack && <p className="text-gray-400 text-sm">{entry.stack}</p>}
                                         </div>
                                     </div>
                                     <BulletList bullets={entry.bullets} />
