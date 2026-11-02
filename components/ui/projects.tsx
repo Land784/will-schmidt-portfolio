@@ -83,7 +83,6 @@ const projects: Project[] = [
             "The schema requires alt text on every image, and pages target WCAG AA contrast down to 360px wide. Launching on Cloudflare by the end of November 2026.",
         tech: ["Astro", "TypeScript", "React", "Tailwind CSS v4", "Sanity", "GROQ", "Cloudflare", "GitHub Actions"],
         status: "Team lead",
-        underConstruction: true,
     },
     {
         name: "Plated",
