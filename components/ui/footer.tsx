@@ -4,6 +4,7 @@ export default function Footer() {
             <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-2xl font-bold mb-6">Interested in talking?</h2>
 
+                {/* TODO: maybe add a "Book a call" button here once there's a Google Calendar appointment-schedule booking link */}
                 <a
                     href="mailto:wschmid3@nd.edu"
                     className="inline-block bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition"

@@ -135,3 +135,19 @@
     transition: transform 150ms ease-out;
   }
 }
+
+/* Soft light that follows the cursor across a tilted card; --glare-* are set by TiltCard. */
+.tilt-card {
+  position: relative;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgb(255 255 255 / 0.12), transparent 55%);
+  opacity: var(--glare-opacity, 0);
+  transition: opacity 200ms ease-out;
+}

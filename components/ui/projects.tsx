@@ -1,5 +1,6 @@
 import StatusBadge from "@/components/ui/status-badge";
 import TiltCard from "@/components/ui/tilt-card";
+import LastCommit from "@/components/ui/last-commit";
 import { cn } from "@/lib/utils";
 
 type Project = {
@@ -115,7 +116,23 @@ const projects: Project[] = [
     },
 ];
 
-export default function Projects() {
+// Latest commit date for repos under github.com/Land784; anything else (upstream PRs, private repos) gets none.
+async function lastCommitDate(github?: string): Promise<string | null> {
+    const repo = github?.match(/^https:\/\/github\.com\/(Land784\/[^/]+)$/)?.[1];
+    if (!repo) return null;
+    try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=1`, { next: { revalidate: 3600 } });
+        if (!res.ok) return null;
+        const [latest] = await res.json();
+        return latest?.commit?.committer?.date ?? null;
+    } catch {
+        return null;
+    }
+}
+
+export default async function Projects() {
+    const [featuredCommit, ...projectCommits] = await Promise.all([featured, ...projects].map((p) => lastCommitDate(p.github)));
+
     return (
         <section id="projects" className="bg-black text-white px-6 py-24">
             <div className="max-w-4xl mx-auto">
@@ -144,6 +161,8 @@ export default function Projects() {
                             </span>
                         ))}
                     </div>
+
+                    {featuredCommit && <LastCommit date={featuredCommit} />}
 
                     <a
                         href={featured.github}
@@ -194,6 +213,8 @@ export default function Projects() {
                                     ))}
                                 </div>
                             )}
+
+                            {projectCommits[index] && <LastCommit date={projectCommits[index]} />}
 
                             {project.github && (
                                 <a
