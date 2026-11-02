@@ -4,6 +4,7 @@ export type ExperienceEntry = {
     company: string
     location: string
     date: string
+    status?: "Incoming" | "Previous"
     bullets: string[]
 }
 
@@ -30,25 +31,25 @@ export type SkillGroup = {
 
 export const experience: ExperienceEntry[] = [
     {
-        year: "Aug 2026 – Present",
-        title: "Undergraduate Research Assistant",
-        company: "AI-Based Medical Image Analysis Lab, CSE Department",
-        location: "University of Notre Dame",
-        date: "Aug 2026 – Present",
-        bullets: [
-            "AI-based medical image analysis under Prof. Danny Chen",
-            "Performed research tasks on real-time surgical segmentation models",
-        ],
+        year: "Summer 2027",
+        title: "AI & Data Engineering Summer Scholar",
+        company: "Deloitte",
+        location: "Government & Public Services (GPS)",
+        date: "Summer 2027",
+        status: "Incoming",
+        bullets: [],
     },
     {
-        year: "May 2026 – Present",
+        year: "May – Oct 2026",
         title: "Software Engineering Intern",
         company: "BPN Solutions",
         location: "Indianapolis, IN",
-        date: "May 2026 – Present",
+        date: "May – Oct 2026",
+        status: "Previous",
         bullets: [
-            "Owned two client products end to end as sole engineer, from scoping in weekly client calls through architecture and deployment",
+            "Owned three client products end to end as sole engineer, from scoping in weekly client calls through architecture and deployment",
             "Built and shipped DEEM's EPA-compliance refrigerant-management web app in Next.js and Fastify over SQL Server, delivering a certification-gated purchase-order system with automated inventory drawdown and reconciliation plus mobile barcode scanning, tracking 40,000+ lbs of refrigerant a year against $59K-per-day EPA penalties",
+            "Built an e-commerce site for a Detroit-based planter company, working directly with the client to scope requirements",
             "Drove test-driven development with a 200+ test integration suite on a Dockerized SQL Server, and built GitHub Actions and Vercel CI/CD to auto-deploy on merge",
             "Engineered a full-stack job-scheduling and profitability platform in Next.js, TypeScript, and Supabase for a landscaping business launching August 2026, replacing quote-by-feel estimating with per-job margin analytics aimed at lifting the owners' margins from 15-20% toward their 40% goal, and automating crew scheduling and SMS alerts",
         ],
@@ -59,6 +60,7 @@ export const experience: ExperienceEntry[] = [
         company: "Sonablate Corp.",
         location: "Indianapolis, IN",
         date: "May – July 2025",
+        status: "Previous",
         bullets: [
             "Re-engineered the protected health information (PHI) browser used to manage patient records, migrating the full UI from Java Swing to JavaFX and aligning it with the main application's design system",
             "Built encryption, anonymization, and USB-export features for patient records, hardening handling of sensitive medical data to support HIPAA-compliant workflows",
@@ -67,7 +69,32 @@ export const experience: ExperienceEntry[] = [
     },
 ];
 
+export const research: ExperienceEntry[] = [
+    {
+        year: "Aug 2026 – Present",
+        title: "Undergraduate Research Assistant",
+        company: "AI-Based Medical Image Analysis Lab, CSE Department",
+        location: "University of Notre Dame",
+        date: "Aug 2026 – Present",
+        bullets: [
+            "AI-based medical image analysis under Prof. Danny Chen",
+            "Performed research tasks on real-time surgical segmentation models",
+        ],
+    },
+];
+
 export const leadership: LeadershipEntry[] = [
+    {
+        year: "Fall 2026",
+        title: "CS4Good",
+        role: "Project Lead, Changing Lives Ghana",
+        company: "CS4Good",
+        location: "University of Notre Dame",
+        date: "Fall 2026",
+        bullets: [
+            "Leading the team building a website for Changing Lives Ghana, a community partner, through Notre Dame's CS4Good club",
+        ],
+    },
     {
         year: "Summers 2022–2024",
         title: "Diabetes Youth Foundation of Indiana",
@@ -88,17 +115,6 @@ export const leadership: LeadershipEntry[] = [
         date: "Aug 2024 – Present",
         bullets: [
             "Self-taught DJ performing campus gigs; built custom production speakers from scratch with crossovers, woofers, and cabinets",
-        ],
-    },
-    {
-        year: "Jun – Aug 2025",
-        title: "Notre Dame Engineering Summer Program",
-        role: "Student",
-        company: "Notre Dame Engineering Summer Program",
-        location: "Rome, Italy",
-        date: "Jun – Aug 2025",
-        bullets: [
-            "Completed Technical Writing and Professional Ethics coursework; proposed software improving Rome's bus-arrival predictions",
         ],
     },
 ];
@@ -137,18 +153,18 @@ export const projects: ProjectEntry[] = [
         ],
     },
     {
-        title: "News Sentiment Stock Price Predictor",
-        stack: "PyTorch, FinBERT, pandas, NewsAPI",
-        bullets: [
-            "Developed a PyTorch stock-price prediction model combining historical market data (yfinance) with FinBERT news-sentiment features engineered from large financial and news datasets using pandas",
-        ],
-    },
-    {
         title: "Open-Source Contribution – git-cola (Git GUI)",
         stack: "Python, Qt, Git · Merged July 2026",
         bullets: [
             "Shipped an upstream-merged safety feature adding a collapsible diff preview (diffstat + unified diff) to revert confirmation dialogs, preventing users from irreversibly discarding uncommitted work",
             "Shared path selection between preview and checkout so the two cannot diverge; extended MessageBox with an expand_details API and added unit tests for the new gitcmds diff helper",
+        ],
+    },
+    {
+        title: "Plated",
+        stack: "Coming soon",
+        bullets: [
+            "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users",
         ],
     },
 ];

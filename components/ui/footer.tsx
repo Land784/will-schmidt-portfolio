@@ -2,11 +2,7 @@ export default function Footer() {
     return (
         <footer className="bg-black text-white px-6 py-16 border-t border-white/10">
             <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-2xl font-bold mb-3">Interested in talking?</h2>
-
-                <p className="text-gray-400 mb-6">
-                    I&apos;m seeking a Summer 2027 software engineering internship.
-                </p>
+                <h2 className="text-2xl font-bold mb-6">Interested in talking?</h2>
 
                 <a
                     href="mailto:wschmid3@nd.edu"

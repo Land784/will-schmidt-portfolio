@@ -1,3 +1,14 @@
+import StatusBadge from "@/components/ui/status-badge";
+
+type Project = {
+    name: string;
+    hook: string;
+    description: string;
+    tech: string[];
+    github?: string;
+    status?: string;
+};
+
 const featured = {
     name: "AI Fitness Platform",
     hook: "A multi-user platform that unifies Strava, WHOOP, and Dexcom G7 glucose data and layers Claude on top for training plans and natural-language coaching.",
@@ -19,7 +30,7 @@ const featured = {
     github: "https://github.com/Land784/whoop-strava-fitness-tracker",
 };
 
-const projects = [
+const projects: Project[] = [
     {
         name: "Open-Source Contribution: git-cola",
         hook: "An upstream-merged safety feature for git-cola, a Git GUI: a collapsible diff preview on revert confirmation dialogs that prevents users from irreversibly discarding uncommitted work.",
@@ -60,6 +71,27 @@ const projects = [
             "Architected with reusable components and strict TypeScript throughout.",
         tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
         github: "https://github.com/Land784/will-schmidt-portfolio",
+    },
+    {
+        name: "Trek: Road Trip Generator",
+        hook: "Building the Flask backend for a road trip generator backed by a relational database (vehicles, rentals, highways, destinations).",
+        description: "",
+        tech: ["Flask"],
+        status: "Team project",
+    },
+    {
+        name: "Plated",
+        hook: "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users.",
+        description: "",
+        tech: [],
+        status: "Coming soon",
+    },
+    {
+        name: "Ranked By",
+        hook: "Daily puzzle website: players see a pre-filled tier list and guess what it's ranked by, with hints that get more revealing. Easy, medium and hard puzzles every day, plus build-your-own tier lists.",
+        description: "",
+        tech: [],
+        status: "Coming soon",
     },
 ];
 
@@ -109,7 +141,10 @@ export default function Projects() {
                             key={index}
                             className="border border-white/30 rounded-2xl p-6 flex flex-col"
                         >
-                            <h3 className="text-xl font-bold mb-1">{project.name}</h3>
+                            <h3 className="text-xl font-bold mb-1">
+                                {project.name}
+                                {project.status && <StatusBadge label={project.status} />}
+                            </h3>
 
                             <p className="text-gray-300 text-sm mb-3">{project.hook}</p>
 
@@ -117,24 +152,28 @@ export default function Projects() {
                                 {project.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-2 mb-5">
-                                {project.tech.map((t) => (
-                                    <span
-                                        key={t}
-                                        className="text-xs px-3 py-1 border border-white/20 rounded-full text-gray-300"
-                                    >
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
+                            {project.tech.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mb-5">
+                                    {project.tech.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="text-xs px-3 py-1 border border-white/20 rounded-full text-gray-300"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
 
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 px-5 py-2.5 rounded-xl w-fit hover:bg-white hover:text-black transition"
-                            >
-                                GitHub →
-                            </a>
+                            {project.github && (
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 px-5 py-2.5 rounded-xl w-fit hover:bg-white hover:text-black transition"
+                                >
+                                    GitHub →
+                                </a>
+                            )}
                         </div>
                     ))}
                 </div>

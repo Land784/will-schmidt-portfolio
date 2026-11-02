@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { experience, leadership } from "@/lib/resume-data";
+import { experience, research, leadership } from "@/lib/resume-data";
+import StatusBadge from "@/components/ui/status-badge";
 
 export const metadata: Metadata = {
     title: "About — William Schmidt",
 };
 
-const timelineEntries = [
-    ...experience.map(e => ({
-        year: e.year,
-        title: e.title,
-        company: e.company,
-        bullets: e.bullets,
-    })),
+type TimelineEntry = {
+    year: string;
+    title: string;
+    company: string;
+    status?: string;
+    bullets: string[];
+};
+
+const timelineEntries: TimelineEntry[] = [
+    ...experience,
     ...leadership
         .filter(e => e.company === "Diabetes Youth Foundation of Indiana")
         .map(e => ({
@@ -22,6 +26,49 @@ const timelineEntries = [
             bullets: e.bullets,
         })),
 ];
+
+function Timeline({ entries }: { entries: TimelineEntry[] }) {
+    return (
+        <div className="space-y-12 border-l border-white/20">
+
+            {entries.map((entry, index) => (
+                <div
+                    key={index}
+                    className="relative pl-6"
+                >
+
+                    {/* Timeline dot */}
+                    <div className="absolute w-3 h-3 bg-white rounded-full -left-[7px] top-1" />
+
+                    {/* Year */}
+                    <p className="text-sm text-gray-500 mb-2">
+                        {entry.year}
+                    </p>
+
+                    {/* Title */}
+                    <h3 className="text-2xl font-semibold mb-0.5">
+                        {entry.title}
+                        {entry.status && <StatusBadge label={entry.status} />}
+                    </h3>
+
+                    {/* Company Name */}
+                    <h5 className="ml-8 text-1xl font-semibold mb-0.5">
+                        {entry.company}
+                    </h5>
+
+                    {/* Bullets */}
+                    <ul className="text-gray-400 leading-relaxed ml-16 space-y-1 mt-1">
+                        {entry.bullets.map((bullet, i) => (
+                            <li key={i}>• {bullet}</li>
+                        ))}
+                    </ul>
+
+                </div>
+            ))}
+
+        </div>
+    );
+}
 
 export default function AboutPage() {
     return (
@@ -63,6 +110,9 @@ export default function AboutPage() {
                             <p className="ml-8">
                                 <span className="font-bold">GPA:</span> 3.88 / 4.00
                             </p>
+                            <p className="ml-8">
+                                <span className="font-bold">Study abroad:</span> London, Spring 2027
+                            </p>
                         </div>
 
                         {/* Blurb */}
@@ -95,43 +145,15 @@ export default function AboutPage() {
                         Experience
                     </h2>
 
-                    <div className="space-y-12 border-l border-white/20">
+                    <Timeline entries={timelineEntries} />
+                </section>
 
-                        {timelineEntries.map((entry, index) => (
-                            <div
-                                key={index}
-                                className="relative pl-6"
-                            >
-
-                                {/* Timeline dot */}
-                                <div className="absolute w-3 h-3 bg-white rounded-full -left-[7px] top-1" />
-
-                                {/* Year */}
-                                <p className="text-sm text-gray-500 mb-2">
-                                    {entry.year}
-                                </p>
-
-                                {/* Title */}
-                                <h3 className="text-2xl font-semibold mb-0.5">
-                                    {entry.title}
-                                </h3>
-
-                                {/* Company Name */}
-                                <h5 className="ml-8 text-1xl font-semibold mb-0.5">
-                                    {entry.company}
-                                </h5>
-
-                                {/* Bullets */}
-                                <ul className="text-gray-400 leading-relaxed ml-16 space-y-1 mt-1">
-                                    {entry.bullets.map((bullet, i) => (
-                                        <li key={i}>• {bullet}</li>
-                                    ))}
-                                </ul>
-
-                            </div>
-                        ))}
-
-                    </div>
+                {/* RESEARCH SECTION */}
+                <section className="mt-16">
+                    <h2 className="text-5xl font-bold mb-12">
+                        Research
+                    </h2>
+                    <Timeline entries={research} />
                 </section>
             </div>
         </main>

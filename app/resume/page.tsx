@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { experience, leadership, skillGroups, courses, projects } from "@/lib/resume-data";
+import { experience, research, leadership, skillGroups, courses, projects, type ExperienceEntry } from "@/lib/resume-data";
+import StatusBadge from "@/components/ui/status-badge";
 
 export const metadata: Metadata = {
     title: "Resume — William Schmidt",
@@ -25,6 +26,31 @@ function BulletList({ bullets }: { bullets: string[] }) {
                 </li>
             ))}
         </ul>
+    );
+}
+
+function EntryList({ entries }: { entries: ExperienceEntry[] }) {
+    return (
+        <div className="space-y-7">
+            {entries.map((entry, i) => (
+                <div key={i}>
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <p className="font-semibold text-lg">
+                                {entry.company}
+                                {entry.status && <StatusBadge label={entry.status} />}
+                            </p>
+                            <p className="text-gray-300 text-sm">{entry.title}</p>
+                        </div>
+                        <div className="text-right text-sm shrink-0 ml-6">
+                            <p className="text-gray-400">{entry.location}</p>
+                            <p className="text-gray-400">{entry.date}</p>
+                        </div>
+                    </div>
+                    <BulletList bullets={entry.bullets} />
+                </div>
+            ))}
+        </div>
     );
 }
 
@@ -83,6 +109,9 @@ export default function ResumePage() {
                                 <p className="text-gray-400 text-sm">
                                     Minor: Engineering Corporate Practice
                                 </p>
+                                <p className="text-gray-400 text-sm">
+                                    Study abroad: London, Spring 2027
+                                </p>
                             </div>
                             <div className="text-right text-sm shrink-0 ml-6">
                                 <p className="text-gray-400">Notre Dame, IN</p>
@@ -103,23 +132,13 @@ export default function ResumePage() {
                     {/* Experience */}
                     <section>
                         <SectionHeader title="Experience" />
-                        <div className="space-y-7">
-                            {experience.map((entry, i) => (
-                                <div key={i}>
-                                    <div className="flex justify-between items-start">
-                                        <div>
-                                            <p className="font-semibold text-lg">{entry.company}</p>
-                                            <p className="text-gray-300 text-sm">{entry.title}</p>
-                                        </div>
-                                        <div className="text-right text-sm shrink-0 ml-6">
-                                            <p className="text-gray-400">{entry.location}</p>
-                                            <p className="text-gray-400">{entry.date}</p>
-                                        </div>
-                                    </div>
-                                    <BulletList bullets={entry.bullets} />
-                                </div>
-                            ))}
-                        </div>
+                        <EntryList entries={experience} />
+                    </section>
+
+                    {/* Research */}
+                    <section>
+                        <SectionHeader title="Research" />
+                        <EntryList entries={research} />
                     </section>
 
                     {/* Technical Skills */}
