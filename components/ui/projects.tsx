@@ -1,4 +1,5 @@
 import StatusBadge from "@/components/ui/status-badge";
+import { cn } from "@/lib/utils";
 
 type Project = {
     name: string;
@@ -72,6 +73,17 @@ const projects: Project[] = [
             "Architected with reusable components and strict TypeScript throughout.",
         tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
         github: "https://github.com/Land784/will-schmidt-portfolio",
+    },
+    {
+        name: "Changing Lives Ghana",
+        hook: "Leading a Notre Dame CS4Good team of about eight students rebuilding the website for Changing Lives Ghana, a nonprofit, so its founder can update every page without touching code.",
+        description:
+            "Replacing the charity's GoDaddy site-builder page with a static Astro and TypeScript site whose content comes entirely from Sanity. " +
+            "I set up the repo, CI, and the Sanity Studio content schemas, then wired the site to fetch content at build time, with Portable Text rendering and responsive srcset images. " +
+            "The schema requires alt text on every image, and pages target WCAG AA contrast down to 360px wide. Launching on Cloudflare by the end of November 2026.",
+        tech: ["Astro", "TypeScript", "React", "Tailwind CSS v4", "Sanity", "GROQ", "Cloudflare", "GitHub Actions"],
+        status: "Team lead",
+        underConstruction: true,
     },
     {
         name: "Plated",
@@ -158,7 +170,8 @@ export default function Projects() {
                                 </span>
                             )}
 
-                            <h3 className="text-xl font-bold mb-1">
+                            {/* leave room for the corner tape */}
+                            <h3 className={cn("text-xl font-bold mb-1", project.underConstruction && "pr-36")}>
                                 {project.name}
                                 {project.status && <StatusBadge label={project.status} />}
                             </h3>
