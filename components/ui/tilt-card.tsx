@@ -3,7 +3,7 @@
 import type { PointerEvent, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-const MAX_TILT_DEG = 6;
+const MAX_TILT_DEG = 9;
 
 // Tilts toward the mouse cursor; the transform itself lives in globals.css (.tilt-card) so reduced-motion users opt out.
 export default function TiltCard({ className, children }: { className?: string; children: ReactNode }) {
