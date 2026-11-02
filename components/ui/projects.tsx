@@ -77,15 +77,18 @@ const projects: Project[] = [
         name: "Plated",
         hook: "Checks Notre Dame dining hall menus and sends notifications, with an allergen- and protein-aware meal builder; 10+ users.",
         description: "",
-        tech: ["Python", "httpx", "Pydantic", "Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS v4", "ntfy"],
+        tech: ["Python", "httpx", "Pydantic", "Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS v4", "ntfy", "pytest", "Vitest", "GitHub Actions"],
         github: "https://github.com/Land784/Plated",
         underConstruction: true,
     },
     {
         name: "Trek: Road Trip Generator",
-        hook: "Building the Flask backend for a road trip generator backed by a relational database (vehicles, rentals, highways, destinations).",
-        description: "",
-        tech: ["Python", "Flask", "MySQL", "Jinja2", "mysqlclient"],
+        hook: "A road trip planner that builds itineraries and packing lists around what your vehicle can actually do: its fuel range, size, and cargo space.",
+        description:
+            "Building the full stack for Notre Dame's Database Concepts course: a Flask app over a 19-table MySQL schema, server-rendered Jinja pages, " +
+            "and every query hand-written as parameterized SQL with no ORM. Loads 50,407 real vehicle models from fueleconomy.gov and runs on a Notre Dame CSE server. " +
+            "Next up: an itinerary optimizer that splits a route into driving days and picks overnight stops, and a packing solver that decides what gear fits and what gets cut.",
+        tech: ["Python", "Flask", "MySQL", "SQL", "Jinja2", "HTML/CSS"],
         status: "Team project",
     },
     {
