@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { experience, research, leadership } from "@/lib/resume-data";
 import StatusBadge from "@/components/ui/status-badge";
+import VinylPlayer from "@/components/ui/vinyl-player";
 
 export const metadata: Metadata = {
     title: "About — William Schmidt",
@@ -154,6 +155,19 @@ export default function AboutPage() {
                         Research
                     </h2>
                     <Timeline entries={research} />
+                </section>
+
+                {/* DJ SECTION */}
+                <section className="mt-16">
+                    <h2 className="text-5xl font-bold mb-12">
+                        Now Spinning
+                    </h2>
+                    <VinylPlayer
+                        trackId="0BK6ACxpzK8nkWa3YKuunX"
+                        cover="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a1822f067bbc55699e5722dc"
+                        title="Fancy Footwork"
+                        artist="Chris Lorenzo & Chromeo"
+                    />
                 </section>
             </div>
         </main>

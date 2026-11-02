@@ -151,3 +151,23 @@
   opacity: var(--glare-opacity, 0);
   transition: opacity 200ms ease-out;
 }
+
+/* About page record: fine grooves, spins at 33⅓ rpm (1.8s per turn) only while the song plays. */
+.vinyl {
+  background: repeating-radial-gradient(circle at center, #0d0d0d 0 2px, #1a1a1a 2px 3px);
+  animation: vinyl-spin 1.8s linear infinite paused;
+}
+
+.vinyl-playing {
+  animation-play-state: running;
+}
+
+@keyframes vinyl-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl {
+    animation: none;
+  }
+}
