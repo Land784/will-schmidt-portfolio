@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils";
 
 // Minimal types for Spotify's iFrame API (https://developer.spotify.com/documentation/embeds/references/iframe-api)
 type SpotifyController = {
-    addListener(event: "playback_update", cb: (e: { data: { isPaused: boolean } }) => void): void;
+    addListener(
+        event: "playback_update",
+        cb: (e: { data: { isPaused: boolean; position: number; duration: number } }) => void,
+    ): void;
     destroy(): void;
 };
 type SpotifyIFrameAPI = {
@@ -67,7 +70,10 @@ export default function VinylPlayer({ trackId, cover, title, artist }: Props) {
                 api.createController(target, { uri: `spotify:track:${trackId}`, width: "100%", height: 152 }, (c) => {
                     if (cancelled) return c.destroy();
                     controller = c;
-                    c.addListener("playback_update", (e) => setPlaying(!e.data.isPaused));
+                    // At the end Spotify reports position === duration but never isPaused, so check both.
+                    c.addListener("playback_update", ({ data }) =>
+                        setPlaying(!data.isPaused && data.position < data.duration),
+                    );
                 });
             })
             .catch(() => setApiFailed(true));
